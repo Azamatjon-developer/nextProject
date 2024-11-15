@@ -1,12 +1,18 @@
-import Header from '@/components/Header'
+async function fetchData () {
+  const res = await fetch ("https://jsonplaceholder.typicode.com/photos");
+  const result = await res.json()
+  return result
+}
 
-const page = () => {
+export default async function Home () {
+  const res = await fetchData()
+  console.log(res)
   return (
-    <div className='bg-[#222] text-white h-screen overflow-y-auto'>
-      <Header/>
-      <h2>Hello </h2>
+    <div>
+      <h2 className="text-[32px] text-slate-700">Main page </h2>
+      <p>
+        {res.title}
+      </p>
     </div>
   )
 }
-
-export default page
