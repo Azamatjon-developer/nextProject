@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 interface PostProps {
-  post: Post;  // Use the Post interface here to type the prop
+  post: Post;  
 }
 
 interface Post {
