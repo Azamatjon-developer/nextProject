@@ -1,41 +1,40 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
 interface MetaDataProps {
-  params: { id: number };
-  searchParams?: string | number;
+  params: { id: number }
+  searchParams?: string | number
 }
 
 interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
+  userId: number
+  id: number
+  title: string
+  body: string
 }
 
-// Function to fetch all posts or a specific post by ID
 async function fetchData(id?: number): Promise<Post | Post[]> {
   const url = id
     ? `https://jsonplaceholder.typicode.com/posts/${id}`
-    : 'https://jsonplaceholder.typicode.com/posts/';
+    : 'https://jsonplaceholder.typicode.com/posts/'
 
-  const res = await fetch(url);
+  const res = await fetch(url)
   if (!res.ok) {
-    throw new Error('Failed to fetch data');
+    throw new Error('Failed to fetch data')
   }
 
-  const result = await res.json();
-  return result;
+  const result = await res.json()
+  return result
 }
 
 export async function generateMetaData({ params }: MetaDataProps) {
-  const post = (await fetchData(params.id)) as Post;
+  const post = (await fetchData(params.id)) as Post
   return {
     title: post.title,
-  };
+  }
 }
 
 export default async function Home() {
-  const posts = (await fetchData()) as Post[];
+  const posts = (await fetchData()) as Post[]
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-800 to-black text-white py-10 px-6">
@@ -64,5 +63,5 @@ export default async function Home() {
         ))}
       </div>
     </div>
-  );
+  )
 }

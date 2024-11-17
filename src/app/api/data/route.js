@@ -1,4 +1,4 @@
-import { json } from "stream/consumers"
+import { json } from 'stream/consumers'
 
 export async function Get(req) {
   const data = {
@@ -8,4 +8,4 @@ export async function Get(req) {
     bio: 'bio',
   }
   return new Response(JSON.stringify(data))
-} 
+}
