@@ -1,4 +1,3 @@
-import { json } from 'stream/consumers'
 
 export async function Get(req) {
   const data = {
