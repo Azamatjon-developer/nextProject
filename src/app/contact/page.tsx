@@ -1,5 +1,9 @@
+import { Metadata } from 'next';
 import React from 'react';
-
+export const metadata: Metadata = {
+  title: 'Contact Us',
+  description: 'Contact Us description'
+}
 const Contact = () => {
   return (
     <div className="bg-gradient-to-b from-gray-800 to-black text-white min-h-screen flex flex-col items-center justify-center px-6">
